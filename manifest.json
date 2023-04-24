@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Highlights extension",
+  "version": "1.0",
+  "description": "Underline the words you need",
+  "action": {
+    "default_title": "Highlights extension"
+  },
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content-scripts/highlight-script.js"],
+      "type": "module"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/classes/*",
+        "src/content-scripts/*",
+        "src/background-script/*",
+        "src/constants/*"
+      ],
+      "matches": ["<all_urls>"],
+      "use_dynamic_url": true
+    }
+  ]
+}
